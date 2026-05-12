@@ -170,7 +170,7 @@
     <section class="slide" id="s3"><div class="card">
       <div class="kicker">Why</div>
       <h2>왜 n8n을 사용할까?</h2>
-        <h3 style="margin-top:32px;">비개발 관점</h3>
+        <h3 style="margin-top:32px;">비개발자 관점</h3>
           <ul>
             <li>메일 확인, 데이터 입력, 알림 전송 같은 반복 작업을 줄일 수 있습니다.</li>
             <li>여러 시스템을 수동으로 오가는 복사/붙여넣기 업무를 자동화합니다.</li>
@@ -178,9 +178,8 @@
           </ul>
         <h3 style="margin-top:38px;">개발자 관점</h3>
           <ul>
-            <li>운영 메일(Alert, 장애 알림)을 수집해 Slack, Telegram 등으로 자동 전파할 수 있습니다.</li>
+            <li>운영 메일(Alert, 장애 알림)을 수집해 슬랙, 텔레그램 등으로 자동 전파할 수 있습니다.</li>
             <li>반복적인 API 호출 스크립트를 직접 구현하지 않고 Workflow 기반으로 관리할 수 있습니다.</li>
-            <li>Retry / Error Workflow를 통해 운영 자동화 안정성을 높일 수 있습니다.</li>
             <li>OpenAI · Claude 같은 LLM API를 붙여 메일 요약, 로그 분석, 자동 응답 생성까지 확장 가능합니다.</li>
             <li>사내 시스템 API와 연결해 “이벤트 감지 → 데이터 가공 → 후속 액션 실행” 흐름을 빠르게 구축할 수 있습니다.</li>
           </ul>
@@ -218,7 +217,7 @@
       <h3>장애 대응 자동화</h3>
       <p>
         장애 발생 시 
-        Slack · Telegram · PagerDuty로 장애 전파
+        Slack · Telegram 장애 전파
       </p>
     </div>
 
@@ -250,7 +249,7 @@
 
     <section class="slide" id="s6"><div class="card">
       <div class="kicker">My Workflow</div>
-      <h2>내가 만든 Gmail Trigger 자동화</h2>
+      <h2>Gmail Trigger 테스트</h2>
       <p><span class="badge">목표</span>Gmail로 들어온 메일을 AI 모델이 읽고, 답장 초안을 자동으로 생성합니다.</p>
       <div class="flow">
         <div class="node">Gmail Trigger</div>
@@ -259,7 +258,6 @@
         <div class="arrow">→</div>
         <div class="node">Create a draft</div>
       </div>
-      <p class="note">반복적인 메일 확인과 답장 초안 작성 시간을 줄이는 것이 핵심입니다.</p>
     </div><div class="footer">6 / 11</div></section>
 
     <section class="slide" id="s7"><div class="card">
@@ -287,21 +285,43 @@
       <ul>
         <li><b>Subject:</b> Gmail Trigger의 메일 제목을 가져와 답장 초안 제목으로 사용</li>
         <li><b>Message:</b> AI 모델이 생성한 응답 텍스트를 메일 본문으로 입력</li>
-        <li><b>Thread ID:</b> 기존 메일 스레드에 이어서 답장 초안이 생성되도록 설정</li>
+        <li><b>Thread ID:</b> 기존 메일 스레드에 이어서 답장 초안이 자동 생성되도록 설정</li>
         <li><b>Credential:</b> Gmail OAuth2 API 인증 정보를 사용</li>
       </ul>
     </div><div class="footer">10 / 11</div></section>
 
-    <section class="slide" id="s11"><div class="card">
-      <div class="kicker">Conclusion</div>
-      <h2>정리</h2>
-      <ul>
-        <li>n8n은 여러 서비스를 연결해 반복 업무를 자동화하는 도구입니다.</li>
-        <li>Gmail Trigger만으로도 메일 기반 업무 자동화의 시작점을 만들 수 있습니다.</li>
-        <li>AI 모델을 연결하면 단순 알림을 넘어 답변 초안 생성까지 가능합니다.</li>
-      </ul>
-      <p class="note">“작은 자동화 하나가 업무 방식을 바꾼다.”</p>
-    </div><div class="footer">11 / 11</div></section>
+<section class="slide" id="s11"><div class="card">
+  <div class="kicker">Conclusion</div>
+  <h2>정리</h2>
+
+  <ul>
+    <li>
+      n8n은 단순 노코드 툴이 아니라 
+      API · Webhook · AI 모델을 연결하는 Workflow Orchestration 플랫폼입니다.
+    </li>
+
+    <li>
+      Gmail, Slack, GitHub, OpenAI 같은 서비스를 
+      빠르게 연결해 Event-driven 자동화를 구현할 수 있습니다.
+    </li>
+
+    <li>
+      개발자는 반복적인 API 호출, 알림 처리, 데이터 가공 로직을 
+      코드 대신 Workflow 기반으로 관리할 수 있습니다.
+    </li>
+
+    <li>
+      Redis Queue, Worker 구조, Error Workflow 등을 활용해 
+      운영 자동화 수준까지 확장 가능합니다.
+    </li>
+
+    <li>
+      AI 모델을 연결하면 단순 알림을 넘어 
+      메일 요약, 로그 분석, 답변 초안 생성 같은 AI Workflow 구축이 가능합니다.
+    </li>
+  </ul>
+
+</div><div class="footer">11 / 11</div></section>
   </main>
   <script>
     document.addEventListener('keydown', (e) => {
